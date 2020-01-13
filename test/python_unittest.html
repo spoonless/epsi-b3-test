@@ -107,6 +107,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#tester-des-exceptions">Tester des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercice">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#utilisation-de-doublure">Utilisation de doublure</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#utilisation-d-un-objet-mock">Utilisation d’un objet <em>mock</em></a></li>
 </ul>
@@ -386,6 +387,39 @@ Ran <span class="m">1</span> <span class="nb">test</span> in <span class="m">0</
 
 OK
 </pre></div>
+</div>
+</div>
+<div class="section" id="exercice">
+<h2>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice à rendre - Tests unitaires des classes Cercle et Cylindre</p>
+<p>Soit le script Python suivant pour définir les classes <code class="docutils literal notranslate"><span class="pre">Cercle</span></code> et <code class="docutils literal notranslate"><span class="pre">Cylindre</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Cercle</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rayon</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">rayon</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Le rayon doit être strictement positif&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rayon</span> <span class="o">=</span> <span class="n">rayon</span>
+
+    <span class="k">def</span> <span class="nf">surface</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rayon</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Cylindre</span><span class="p">(</span><span class="n">Cercle</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rayon</span><span class="p">,</span> <span class="n">hauteur</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">rayon</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">hauteur</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;La hauteur doit être strictement positive&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hauteur</span> <span class="o">=</span> <span class="n">hauteur</span>
+
+    <span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hauteur</span>
+</pre></div>
+</div>
+<p>Écrivez les tests pour ces deux classes. Vous créerez les classes <code class="docutils literal notranslate"><span class="pre">CercleTest</span></code> et <code class="docutils literal notranslate"><span class="pre">CylindreTest</span></code>.</p>
 </div>
 </div>
 <div class="section" id="utilisation-de-doublure">
