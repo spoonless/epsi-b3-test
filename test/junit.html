@@ -263,7 +263,7 @@ généralement à l’appel de la méthode à tester),</p></li>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringTest</span> <span class="o">{</span>
 
   <span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">upperCaseProduitUneChaineEnMajuscules</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">upperCaseProduitUneChaineEnMajuscules</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
     <span class="c1">// Bloc arrange</span>
     <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;Bonjour le monde&quot;</span><span class="o">;</span>
 
@@ -351,7 +351,7 @@ et la deuxième valeur correspond à la valeur produite au moment du test.</p>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringTest</span> <span class="o">{</span>
 
   <span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testString</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testString</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
     <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;Bonjour le monde&quot;</span><span class="o">;</span>
 
     <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;Bonjour le monde&quot;</span><span class="o">,</span> <span class="n">s</span><span class="o">);</span>
@@ -460,7 +460,7 @@ qui ne correspond pas à un nombre est passée en paramètre d’appel.</p>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntegerTest</span> <span class="o">{</span>
 
   <span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">parseIntThrowsExceptionWhenNotANumber</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">parseIntThrowsExceptionWhenNotANumber</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
     <span class="k">try</span> <span class="o">{</span>
      <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="s">&quot;not a number&quot;</span><span class="o">);</span>
      <span class="n">fail</span><span class="o">(</span><span class="s">&quot;NumberFormatException expected&quot;</span><span class="o">);</span>
@@ -488,7 +488,7 @@ blocs <code class="docutils literal notranslate"><span class="pre">try</span> <s
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntegerTest</span> <span class="o">{</span>
 
   <span class="nd">@Test</span><span class="o">(</span><span class="n">expected</span> <span class="o">=</span> <span class="n">NumberFormatException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">parseIntThrowsExceptionWhenNotANumber</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">parseIntThrowsExceptionWhenNotANumber</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
     <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="s">&quot;not a number&quot;</span><span class="o">);</span>
   <span class="o">}</span>
 
@@ -516,7 +516,7 @@ dans la méthode.</p>
   <span class="kd">public</span> <span class="n">ExpectedException</span> <span class="n">expectedException</span> <span class="o">=</span> <span class="n">ExpectedException</span><span class="o">.</span><span class="na">none</span><span class="o">();</span>
 
   <span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">parseIntThrowsExceptionWhenNotANumber</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">parseIntThrowsExceptionWhenNotANumber</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
     <span class="n">expectedException</span><span class="o">.</span><span class="na">expect</span><span class="o">(</span><span class="n">NumberFormatException</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 
     <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="s">&quot;not a number&quot;</span><span class="o">);</span>
@@ -545,7 +545,7 @@ lors de la phase <em>arrange</em>.</p>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">IntegerTest</span> <span class="o">{</span>
 
   <span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">parseIntThrowsExceptionWhenNotANumber</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">parseIntThrowsExceptionWhenNotANumber</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
     <span class="n">assertThrows</span><span class="o">(</span><span class="n">NumberFormatException</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
       <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="s">&quot;not a number&quot;</span><span class="o">);</span>
     <span class="o">});</span>
@@ -615,9 +615,7 @@ méthodes programmés sur le mock ont bien été réalisés grâce à la méthod
 <code class="docutils literal notranslate"><span class="pre">Mockito.verify(Object)</span></code>.</p>
 <div class="literal-block-wrapper docutils container" id="id9">
 <div class="code-block-caption"><span class="caption-text">Exemple d’une classe de test utilisant Mockito</span><a class="headerlink" href="#id9" title="Lien permanent vers ce code">¶</a></div>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.hamcrest.CoreMatchers.*</span><span class="o">;</span>
-<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
-
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
@@ -632,7 +630,7 @@ méthodes programmés sur le mock ont bien été réalisés grâce à la méthod
 
     <span class="n">String</span> <span class="n">parameterValue</span> <span class="o">=</span> <span class="n">mockedRequest</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&quot;login&quot;</span><span class="o">);</span>
 
-    <span class="n">assertThat</span><span class="o">(</span><span class="n">parameterValue</span><span class="o">,</span> <span class="n">is</span><span class="o">(</span><span class="s">&quot;monlogin&quot;</span><span class="o">));</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;monlogin&quot;</span><span class="o">,</span> <span class="n">parameterValue</span><span class="o">);</span>
     <span class="n">Mockito</span><span class="o">.</span><span class="na">verify</span><span class="o">(</span><span class="n">mockedRequest</span><span class="o">).</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&quot;login&quot;</span><span class="o">);</span>
   <span class="o">}</span>
 
@@ -642,8 +640,7 @@ méthodes programmés sur le mock ont bien été réalisés grâce à la méthod
 </div>
 <div class="literal-block-wrapper docutils container" id="id10">
 <div class="code-block-caption"><span class="caption-text">Utilisation de Mockito avec import static</span><a class="headerlink" href="#id10" title="Lien permanent vers ce code">¶</a></div>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.hamcrest.CoreMatchers.*</span><span class="o">;</span>
-<span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import static</span> <span class="nn">org.junit.Assert.*</span><span class="o">;</span>
 <span class="kn">import static</span> <span class="nn">org.mockito.Mockito.*</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
@@ -659,7 +656,7 @@ méthodes programmés sur le mock ont bien été réalisés grâce à la méthod
 
     <span class="n">String</span> <span class="n">parameterValue</span> <span class="o">=</span> <span class="n">mockedRequest</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&quot;login&quot;</span><span class="o">);</span>
 
-    <span class="n">assertThat</span><span class="o">(</span><span class="n">parameterValue</span><span class="o">,</span> <span class="n">is</span><span class="o">(</span><span class="s">&quot;monlogin&quot;</span><span class="o">));</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;monlogin&quot;</span><span class="o">,</span> <span class="n">parameterValue</span><span class="o">);</span>
     <span class="n">verify</span><span class="o">(</span><span class="n">mockedRequest</span><span class="o">).</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&quot;login&quot;</span><span class="o">);</span>
   <span class="o">}</span>
 
@@ -672,6 +669,22 @@ tests <a class="reference external" href="https://www.junit.org">JUnit</a> puisq
 <a class="reference external" href="https://site.mockito.org/">Mockito</a>.</p>
 <p>La documentation de <a class="reference external" href="https://site.mockito.org/">Mockito</a> est accessible
 <a class="reference external" href="https://github.com/mockito/mockito/wiki">ici</a>.</p>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice à rendre - Tests unitaires de la classe GeometrieLoader</p>
+<p>Écrire les tests unitaires pour la classe <code class="docutils literal notranslate"><span class="pre">fr.epsi.b3.geometrie.GeometrieLoader</span></code> fournie dans le modèle de projet.
+Vous devez tester uniquement la méthode <code class="docutils literal notranslate"><span class="pre">GeometrieLoader.load(BufferedReader</span> <span class="pre">reader)</span></code>.
+Pour cela, utilisez <a class="reference external" href="https://site.mockito.org/">Mockito</a> pour créer un <em>mock</em> de l’objet de type <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html">BufferedReader</a>
+passé en paramètre de la méthode. Écrire au moins deux tests :</p>
+<ul class="simple">
+<li><p>Un test lorsque l’appel à la méthode réussie et retourne un objet de type <code class="docutils literal notranslate"><span class="pre">Geometrie</span></code></p></li>
+<li><p>Un test lorsque l’appel échoue à cause d’une <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html">IOException</a></p></li>
+</ul>
+<p><strong>Modèle de projet Maven</strong></p>
+<p>Vous devez télécharger le modèle de projet Maven :</p>
+<blockquote>
+<div><p><a class="reference download internal" download="" href="../_downloads/504c1300b49c8f621d36526bb05234d1/exo-java.zip"><code class="xref download docutils literal notranslate"><span class="pre">exo-java.zip</span></code></a></p>
+</div></blockquote>
+</div>
 </div>
 </div>
 </div>
