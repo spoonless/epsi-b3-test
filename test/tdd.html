@@ -262,22 +262,22 @@ les tests.</p>
 <ol class="arabic simple">
 <li><p>Cette méthode prend en paramètre une chaîne de caractères qui représente
 0, 1 ou 2 nombres. Elle retournera leur somme (pour une chaîne de
-caractères vide, elle retournera 0). Par exemple : «  », « 1 » ou « 1,2 »</p></li>
+caractères vide, elle retournera 0). Par exemple : <code class="code docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, <code class="code docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code> ou <code class="code docutils literal notranslate"><span class="pre">&quot;1,2&quot;</span></code></p></li>
 <li><p>Autoriser la méthode <code class="docutils literal notranslate"><span class="pre">add</span></code> à prendre en compte un nombre quelconque de nombres</p></li>
 <li><p>Autoriser la méthode <code class="docutils literal notranslate"><span class="pre">add</span></code> à prendre en compte les retours à la ligne en
-plus des virgules comme séparateur. Par exemple : « 1n2,3 » donne 6</p></li>
-<li><p>Par contre « 1,n » n’est pas ok</p></li>
+plus des virgules comme séparateur. Par exemple : <code class="code docutils literal notranslate"><span class="pre">&quot;1\n2,3&quot;</span></code> donne 6</p></li>
+<li><p>Par contre <code class="code docutils literal notranslate"><span class="pre">&quot;1,\n2&quot;</span></code> n’est pas ok (pas deux séparateurs à la suite)</p></li>
 <li><p>Autoriser la méthode <code class="docutils literal notranslate"><span class="pre">add</span></code> à prendre en compte des séparateurs de un caractère.
 Pour changer de séparateur, la chaînes de caractères peut commencer par
-la ligne : « //[séparateur]n ». La première ligne est optionnelle et tous
-les scénarios précédents restent valides. Par exemple : « //;n1;2 » vaut 3</p></li>
-<li><p>Les nombres supérieurs à 1000 sont ignorés. Par exemple « 2,1001 » vaut 2</p></li>
+la ligne : <code class="code docutils literal notranslate"><span class="pre">&quot;//[séparateur]\n&quot;</span></code>. La première ligne est optionnelle et tous
+les scénarios précédents restent valides. Par exemple : <code class="code docutils literal notranslate"><span class="pre">&quot;//;\n1;2&quot;</span></code> vaut 3</p></li>
+<li><p>Les nombres supérieurs à 1000 sont ignorés. Par exemple <code class="code docutils literal notranslate"><span class="pre">&quot;2,1001&quot;</span></code> vaut 2</p></li>
 <li><p>Appeler <code class="docutils literal notranslate"><span class="pre">add</span></code> avec un nombre négatif dans la chaîne entraîne une
-exception avec le message « negatives not allowed » suivi du nombre négatif
+exception avec le message <code class="code docutils literal notranslate"><span class="pre">&quot;negatives</span> <span class="pre">not</span> <span class="pre">allowed&quot;</span></code> suivi du nombre négatif
 passé dans la chaîne de caractères. S’il y a plusieurs nombre négatifs,
 il faut tous les ajouter dans le message de l’exception</p></li>
-<li><p>Le délimiteur peut avoir n’importe quelle longueur. Par exemple : « //:::n1:::2:::3 » vaut 6</p></li>
-<li><p>Autoriser plusieurs délimiteurs : « //<a href="#id1"><span class="problematic" id="id2">*</span></a>%n1*2%3 » vaut 6</p></li>
+<li><p>Le délimiteur peut avoir n’importe quelle longueur. Par exemple : <code class="code docutils literal notranslate"><span class="pre">&quot;//:::\n1:::2:::3&quot;</span></code> vaut 6</p></li>
+<li><p>Autoriser plusieurs délimiteurs : <code class="code docutils literal notranslate"><span class="pre">&quot;//*%\n1*2%3&quot;</span></code> vaut 6</p></li>
 </ol>
 <p><strong>Modèle de projet Maven</strong></p>
 <p>Vous devez télécharger le modèle de projet Maven :</p>
