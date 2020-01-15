@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Les tests d’acception" href="../test_acceptation/test_acceptation.html" />
     <link rel="prev" title="Les tests unitaires automatisés avec Python" href="python_unittest.html" /> 
 </head>
 
@@ -122,6 +123,17 @@
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">Les tests d'acceptation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test_acceptation/test_acceptation.html">Les tests d’acception</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#recette-fonctionnelle">Recette fonctionnelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#test-d-acceptation-agile">Test d’acceptation agile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#notion-de-cas-de-test">Notion de cas de test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#scenario-de-test">Scénario de test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#rapport-de-test">Rapport de test</a></li>
+</ul>
+</li>
+</ul>
 
             
           
@@ -181,6 +193,8 @@
 
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../test_acceptation/test_acceptation.html" class="btn btn-neutral float-right" title="Les tests d’acception" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="python_unittest.html" class="btn btn-neutral" title="Les tests unitaires automatisés avec Python" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
@@ -298,6 +312,33 @@ le code n’est pas toujours aussi clair et <em>propre</em> que l’on aimerait.
 <div><p><a class="reference download internal" download="" href="../_downloads/cf3b7d50f021ea3e7965e4c05361e660/battlecode.zip"><code class="xref download docutils literal notranslate"><span class="pre">battlecode.zip</span></code></a></p>
 </div></blockquote>
 </div>
+<div class="exercice admonition">
+<p class="admonition-title">Exercice à rendre - Jeu <em>Attrape-moi si tu peux</em></p>
+<p><em>Attrape-moi si tu peux</em> est un jeu à deux joueurs. Les joueurs se
+déplacent sur une grille de taille 10 sur 10.</p>
+<p>Les deux joueurs font une action chacun à leur tour.
+À son tour, un joueur peut faire une des actions suivantes :</p>
+<ul class="simple">
+<li><p>pivoter à gauche de 90° (tourner à gauche)</p></li>
+<li><p>pivoter à droite de 90° (tourner à droite)</p></li>
+<li><p>avancer d’une ou deux cases</p></li>
+</ul>
+<p>Si un joueur avance en dehors du plateau, son déplacement est annulé.</p>
+<p>Une fois que les deux joueurs ont fait leur action, le jeu indique si un joueur
+voit un autre joueur et à quelle distance il se situe (le nombre de cases).
+Un joueur ne voit que ce qui se trouve sur la ligne ou la colonne sur laquelle il est orienté.
+Ensuite, une nouvelle phase de jeu commence et les joueurs peuvent à nouveau
+choisir une des trois actions.</p>
+<p>Pour gagner, un joueur doit se déplacer sur la même case que l’autre joueur.</p>
+<p>Essayez de réaliser ce jeu en TDD. Il ne faut pas intégrer des interfaces graphiques
+ou des sorties sur la console. Contentez-vous de coder le cœur du jeu : les
+classes qui permettent de gérer une partie et le déplacement des joueurs.</p>
+<p><strong>Modèle de projet Maven</strong></p>
+<p>Vous devez télécharger le modèle de projet Maven :</p>
+<blockquote>
+<div><p><a class="reference download internal" download="" href="../_downloads/c357900fac1867f5c6d6123555f2ffde/tdd.zip"><code class="xref download docutils literal notranslate"><span class="pre">tdd.zip</span></code></a></p>
+</div></blockquote>
+</div>
 </div>
 </div>
 
@@ -308,6 +349,8 @@ le code n’est pas toujours aussi clair et <em>propre</em> que l’on aimerait.
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../test_acceptation/test_acceptation.html" class="btn btn-neutral float-right" title="Les tests d’acception" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="python_unittest.html" class="btn btn-neutral float-left" title="Les tests unitaires automatisés avec Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
