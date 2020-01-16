@@ -130,6 +130,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#notion-de-cas-de-test">Notion de cas de test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scenario-de-test">Scénario de test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rapport-de-test">Rapport de test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercice">Exercice</a></li>
 </ul>
 </li>
 </ul>
@@ -326,6 +327,105 @@ conforme aux exigences (méthode de gestion de projet) ou à la <em>user story</
 <h2>Rapport de test<a class="headerlink" href="#rapport-de-test" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Une session de test produit un rapport de test. Ce document atteste du succès
 ou de l’échec des scénarios de test.</p>
+</div>
+<div class="section" id="exercice">
+<h2>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">Cahier de tests pour l’application Pizza Spring</p>
+<p>Rédigez le cahier de test pour l’application Pizza Spring. Le cahier de test
+doit contenir :</p>
+<ul class="simple">
+<li><p>La liste des cas de test</p></li>
+<li><p>La liste des scénarios de test</p></li>
+</ul>
+<p>Vous devez couvrir l’ensemble des fonctionnalités de l’application :</p>
+<ul class="simple">
+<li><p>commander une pizza,</p></li>
+<li><p>préparer une pizza,</p></li>
+<li><p>visualiser les rapports d’activité.</p></li>
+</ul>
+<p>Vous pouvez présenter votre cahier de test sous la forme de plusieurs feuilles
+de tableur. Les cas de tests sont définis par un nom, les étapes de réalisation
+et le résultat attendu. Les scénarios de test son définis par un nom et
+la liste des cas de test qui le compose.</p>
+<p><strong>Pizza Spring</strong></p>
+<dl>
+<dt>Finaliser la commande de pizza</dt><dd><p>L’utilisateur remplit le formulaire de commande avec les pizzas choisies (il peut en choisir
+plusieurs), son nom et son numéro de téléphone. Lorsqu’il clique sur le bouton <span class="guilabel">Commander</span>, les
+données doivent être envoyées au serveur et une commande doit être créée. Une page récapitulant la
+commande doit s’afficher avec les pizzas choisies et la date et l’heure de création de la commande.
+Tous les champs doivent être obligatoirement saisis par l’utilisateur (sinon le formulaire doit être à
+nouveau affiché avec des messages précisant les champs manquants). Attention, un utilisateur ne
+peux choisir que parmi les pizzas disponibles (c’est-à-dire dont la colonne disponible en base de
+données vaut 1)</p>
+</dd>
+<dt>Préparer une pizza</dt><dd><p>Pour la préparation des pizzas, l’application doit disposer d’un nouvel écran qui affiche la liste des
+commandes de pizzas sous la forme d’un tableau. Le tableau doit indiquer le nom de la personne
+qui a commandé la pizza et l’heure de la commande. Ce tableau est trié dans l’ordre chronologique
+(la commande la plus ancienne est en première position). Sur cet écran, apparaît également un
+bouton <span class="guilabel">commande suivante</span>.
+Quand l’utilisateur clique sur ce bouton, un nouvel écran s’affiche avec le détail de la commande :
+nom et téléphone de la personne qui a commandé et, pour chaque pizza, son type et sa composition
+(la liste des ingrédients). Cet écran contient un bouton <span class="guilabel">commande prête</span>. Quant l’utilisateur
+clique sur ce bouton, la commande n’est plus en attente. Elle ne s’affiche donc plus dans le tableau
+des commandes. Ce tableau est à nouveau affiché afin de permettre de passer à la commande
+suivante.</p>
+</dd>
+<dt>Visualiser les rapports d’activité</dt><dd><p>Afin d’aider l’utilisateur à gérer son activité, l’application doit offrir deux rapports :</p>
+<ol class="arabic">
+<li><p>Pour aider à la fidélisation des clients, on doit pouvoir consulter le nombre de commandes
+passées par nom des clients (trié alphabétiquement). Exemple :</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Nom</p></th>
+<th class="head"><p>Nombre de commandes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dupont</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Marchal</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>Pour la journée courante, on doit pouvoir consulter la liste des catégories de pizzas avec le
+nombre de pizzas commandées et le montant encaissé pour chaque catégorie. On pourra omettre les
+catégories pour lesquelles aucune pizza n’a été vendue. Exemple :</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Catégorie</p></th>
+<th class="head"><p>Nombre de pizzas</p></th>
+<th class="head"><p>Montant encaissé</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Base tomate</p></td>
+<td><p>12</p></td>
+<td><p>98,00 euros</p></td>
+</tr>
+<tr class="row-odd"><td><p>Base crème</p></td>
+<td><p>11</p></td>
+<td><p>105,00 euros</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 
