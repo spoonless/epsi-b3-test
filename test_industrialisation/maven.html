@@ -1,0 +1,623 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Maven &mdash; Documentation Les tests </title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Intégration continue avec Jenkins" href="jenkins.html" />
+    <link rel="prev" title="Git" href="../git/git.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Les tests
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Recherche dans les pages" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Les tests unitaires</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test/junit.html">Les tests unitaires automatisés avec JUnit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#junit">JUnit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#structure-d-une-classe-de-test-junit">Structure d’une classe de test JUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#execution-des-tests-junit">Exécution des tests JUnit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#les-methodes-de-test">Les méthodes de test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test/junit.html#les-assertions">Les assertions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#les-fixtures">Les fixtures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#tester-les-exceptions">Tester les exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/junit.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/junit.html#implementation-d-objet-mock-avec-mockito">Implémentation d’objet mock avec Mockito</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/python_unittest.html">Les tests unitaires automatisés avec Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/python_unittest.html#structure-d-une-classe-de-test">Structure d’une classe de test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/python_unittest.html#execution-des-tests">Exécution des tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/python_unittest.html#tester-des-exceptions">Tester des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/python_unittest.html#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/python_unittest.html#utilisation-de-doublure">Utilisation de doublure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/python_unittest.html#utilisation-d-un-objet-mock">Utilisation d’un objet <em>mock</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/tdd.html">TDD : Test Driven Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#qu-est-ce-qu-un-test">Qu’est-ce qu’un test ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#test-driven-development">Test Driven Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test/tdd.html#le-mantra-du-tdd">Le Mantra du TDD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#qu-est-ce-que-concevoir">Qu’est-ce que concevoir ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test/tdd.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Les tests d'acceptation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test_acceptation/test_acceptation.html">Les tests d’acceptation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#recette-fonctionnelle">Recette fonctionnelle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#test-d-acceptation-agile">Test d’acceptation agile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#notion-de-cas-de-test">Notion de cas de test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#scenario-de-test">Scénario de test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#rapport-de-test">Rapport de test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/test_acceptation.html#exercice">Exercice</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Introduction à Git</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../git/git.html">Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#initialisation-d-un-depot">Initialisation d’un dépôt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#suivi-des-modifications-du-depot">Suivi des modifications du dépôt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#validation-des-modifications">Validation des modifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#utilisation-d-un-depot-distant">Utilisation d’un dépôt distant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#exclusion-de-fichiers">Exclusion de fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#les-etiquettes">Les étiquettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#les-branches">Les branches</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../git/git.html#rebase">Rebase</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#git-hub">Git Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#references">Références</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/git.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Industrialisation des processus de test</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Maven</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#utilisation-de-maven-en-ligne-de-commandes">Utilisation de Maven en ligne de commandes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gestion-des-plugins-dans-maven">Gestion des plugins dans Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#association-d-un-plugin-a-une-phase-d-execution">Association d’un plugin à une phase d’exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploiement-automatise-dans-tomcat">Déploiement automatisé dans Tomcat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#export-des-identifiants-du-serveur">Export des identifiants du serveur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercice-bonus">Exercice bonus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins.html">Intégration continue avec Jenkins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jenkins.html#installation-de-jenkins">Installation de Jenkins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jenkins.html#exercices">Exercices</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Les tests</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Accueil</a> &raquo;</li>
+        
+      <li>Maven</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="jenkins.html" class="btn btn-neutral float-right" title="Intégration continue avec Jenkins" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../git/git.html" class="btn btn-neutral" title="Git" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="maven">
+<h1>Maven<a class="headerlink" href="#maven" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Dans ce chapitre, nous allons voir comment configurer des plugins avec Maven pour une application Java.</p>
+<div class="section" id="utilisation-de-maven-en-ligne-de-commandes">
+<h2>Utilisation de Maven en ligne de commandes<a class="headerlink" href="#utilisation-de-maven-en-ligne-de-commandes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Maven découpe la construction du projet en phases. L’ensemble
+de ces phases décrit le cycle de vie d’un projet. En ligne de commandes, on peut
+invoquer Maven depuis un répertoire contenant un fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> en
+précisant la phase que l’on souhaite atteindre :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn package
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, la phase <code class="docutils literal notranslate"><span class="pre">package</span></code> indique que l’on souhaite construire
+le livrable. Pour une application Java, Maven va produire un fichier JAR dans le
+répertoires <code class="file docutils literal notranslate"><span class="pre">target</span></code>. La phase <code class="docutils literal notranslate"><span class="pre">package</span></code> implique de réaliser toutes les
+phases antérieures du cycle de vie. Par exemple, les phases
+<code class="docutils literal notranslate"><span class="pre">compile</span></code> et <code class="docutils literal notranslate"><span class="pre">test</span></code> qui, respectivement, compile le code source et exécute les
+tests automatisés seront réalisées avant.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour plus d’info sur le cycle de vie d’un projet Maven, consultez la page :</p>
+<p><a class="reference external" href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html</a></p>
+</div>
+<p>Il est possible de préciser plusieurs phases à Maven. Par exemple :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn clean package
+</pre></div>
+</div>
+<p>Dans ce cas, Maven va commencer par supprimer tous les fichiers de travail (le
+contenu du répertoire <code class="file docutils literal notranslate"><span class="pre">target</span></code>) et reconstruire le projet à partir de zéro.</p>
+</div>
+<div class="section" id="exercice">
+<h2>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">Tester Maven en ligne de commandes</p>
+<p>Téléchargez Maven depuis :</p>
+<p><a class="reference external" href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a></p>
+<ol class="arabic">
+<li><p>Dézipper l’archive dans <code class="file docutils literal notranslate"><span class="pre">c:Program</span> <span class="pre">Files</span></code></p></li>
+<li><p>Dans les variables d’environnement du système, ajoutez les variables suivantes :</p>
+<blockquote>
+<div><dl class="simple">
+<dt>M2_HOME</dt><dd><p>Cette variable d’environnement doit indiquer le chemin du répertoire
+dézippé.</p>
+</dd>
+<dt>PATH</dt><dd><p>Modifiez cette variable d’environnement pour ajouter <code class="file docutils literal notranslate"><span class="pre">%M2_HOME%/bin</span></code>
+dans la liste des chemins des applications.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ol>
+<p>En ligne de commandes, déplacez-vous dans le répertoire de votre projet Maven
+et tapez :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn clean package
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="gestion-des-plugins-dans-maven">
+<h2>Gestion des plugins dans Maven<a class="headerlink" href="#gestion-des-plugins-dans-maven" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Maven fonctionne en exécutant une succession de plugins. Les plugins sont téléchargés
+à la demande et mis en cache sur la machine de développement. Par défaut, chaque
+phase du cycle de vie est associée à l’exécution de un ou plusieurs plugins. Avec
+Maven, il est possible d’exécuter un plugin directement à partir de la ligne
+de commandes. Il est également possible de déclarer explicitement un plugin
+dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> pour spécifier des paramètres de configuration et/ou
+exécuter ce plugin explicitement à une phase du cycle de vie.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Par défaut, certains plugins sont déjà configurés pour s’exécuter à certaines
+phases du cycle de vie. Par exemple, le <a class="reference external" href="https://maven.apache.org/plugins/maven-compiler-plugin/">maven-compiler-plugin</a> est appelé
+par défaut lors de la phase <code class="docutils literal notranslate"><span class="pre">compile</span></code>.</p>
+</div>
+<p>Un plugin est un artefact Maven. Donc, il est identifié par un ID de groupe,
+un ID d’artefact et une version. On sépare l’ID de groupe et l’ID d’artefact
+avec <code class="docutils literal notranslate"><span class="pre">:</span></code>. On précise enfin l’objectif que l’on invoque sur le plugin. Chaque
+plugin dispose de ses propres objectifs qui sont les actions à réaliser.
+Il faut donc consulter la documentation de chaque plugin.</p>
+<div class="exercice admonition">
+<p class="admonition-title">Exécuter le plugin de compilation</p>
+<p>Appelez directement l’objectif <code class="docutils literal notranslate"><span class="pre">compile</span></code> du plugin de compilation java :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn org.apache.maven.plugins:maven-compiler-plugin:compile
+</pre></div>
+</div>
+<p>La plupart des plugins ont un objectif <code class="docutils literal notranslate"><span class="pre">help</span></code> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn org.apache.maven.plugins:maven-compiler-plugin:help
+</pre></div>
+</div>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Exécuter un plugin en ligne de commandes</p>
+<p>Utiliser le plugin <a class="reference external" href="https://maven.apache.org/plugins/maven-dependency-plugin/">maven-dependency-plugin</a> (groupe ID <code class="docutils literal notranslate"><span class="pre">org.apache.maven.plugins</span></code>)
+pour afficher la liste des dépendances du projet.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Si le nom du plugin est de la forme <code class="docutils literal notranslate"><span class="pre">maven-quelquechose-plugin</span></code> et que
+le groupe ID est <code class="docutils literal notranslate"><span class="pre">org.apache.maven.plugins</span></code> alors on peut directement
+donner le nom court du plugin :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn quelquechose:help
+</pre></div>
+</div>
+</div>
+<p>Pour déclarer un plugin pour un projet particulier, on peut ajouter dans le fichier
+<code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>, une entrée pour le plugin.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Déclaration d’un plugin dans le fichier pom.xml</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0</span>
+<span class="s">                             http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>io.github.spoonless<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>demoapp<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+  <span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+      <span class="nt">&lt;plugin&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;configuration&gt;</span>
+            <span class="nt">&lt;source&gt;</span>11<span class="nt">&lt;/source&gt;</span>
+            <span class="nt">&lt;target&gt;</span>11<span class="nt">&lt;/target&gt;</span>
+            <span class="nt">&lt;encoding&gt;</span>utf-8<span class="nt">&lt;/encoding&gt;</span>
+            <span class="nt">&lt;verbose&gt;</span>true<span class="nt">&lt;/verbose&gt;</span>
+        <span class="nt">&lt;/configuration&gt;</span>
+      <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+  <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Dans l’exemple ci-dessus, on déclare explicitement le <a class="reference external" href="https://maven.apache.org/plugins/maven-compiler-plugin/">maven-compiler-plugin</a>
+afin de passer des paramètres de configuration pour indiquer la version du
+langage utilisé pour les sources et pour les fichiers de classes, l’encodage
+des fichiers et le niveau de détail à afficher.</p>
+<p>Certains paramètres de configuration peuvent directement être spécifiés en ligne
+de commandes grâce à l’option <code class="docutils literal notranslate"><span class="pre">-D</span></code>. Malheureusement, il n’existe pas de
+façon standard de préciser un paramètre de plugin dans Maven. Il faut donc
+se référer à la documentation de chaque plugin.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn compile -Dmaven.compiler.verbose<span class="o">=</span><span class="nb">false</span>
+</pre></div>
+</div>
+<p>Pour un paramètre propre au projet, il est plus intéressant de spécifier
+la valeur du paramètre une bonne fois dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>.
+Si on ne veut pas configurer chaque plugin, il est possible de déclarer
+une section <code class="docutils literal notranslate"><span class="pre">&lt;properties/&gt;</span></code> dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> :</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Déclaration des propriétés dans le fichier pom.xml</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0</span>
+<span class="s">                             http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>io.github.spoonless<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>demoapp<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+  <span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;maven.compiler.source&gt;</span>11<span class="nt">&lt;/maven.compiler.source&gt;</span>
+    <span class="nt">&lt;maven.compiler.target&gt;</span>11<span class="nt">&lt;/maven.compiler.target&gt;</span>
+    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+    <span class="nt">&lt;maven.compiler.verbose&gt;</span>true<span class="nt">&lt;/maven.compiler.verbose&gt;</span>
+  <span class="nt">&lt;/properties&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="association-d-un-plugin-a-une-phase-d-execution">
+<h2>Association d’un plugin à une phase d’exécution<a class="headerlink" href="#association-d-un-plugin-a-une-phase-d-execution" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour déclencher un plugin lors d’une phase précise, il suffit d’utiliser
+l’élément <code class="docutils literal notranslate"><span class="pre">&lt;execution/&gt;</span></code> pour préciser la phase concernée, l’objectif à
+exécuter et la configuration associée :</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Déclaration d’un plugin en associant un objectif à une phase</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0</span>
+<span class="s">                             http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>io.github.spoonless<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>demoapp<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+  <span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+      <span class="nt">&lt;plugin&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>maven-checkstyle-plugin<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>3.0.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;executions&gt;</span>
+          <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>validate<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+              <span class="nt">&lt;goal&gt;</span>check<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+              <span class="nt">&lt;encoding&gt;</span>UTF-8<span class="nt">&lt;/encoding&gt;</span>
+              <span class="nt">&lt;consoleOutput&gt;</span>true<span class="nt">&lt;/consoleOutput&gt;</span>
+              <span class="nt">&lt;failsOnError&gt;</span>true<span class="nt">&lt;/failsOnError&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+          <span class="nt">&lt;/execution&gt;</span>
+        <span class="nt">&lt;/executions&gt;</span>
+      <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+  <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Dans l’exemple ci-dessous, l’objectif <code class="docutils literal notranslate"><span class="pre">check</span></code> du <a class="reference external" href="https://maven.apache.org/plugins/maven-checkstyle-plugin/">maven-checkstyle-plugin</a>  est
+lancé automatiquement lors de la phase <code class="docutils literal notranslate"><span class="pre">package</span></code>.</p>
+<div class="exercice admonition">
+<p class="admonition-title">Utiliser le plugin JaCoCo</p>
+<p><a class="reference external" href="https://www.eclemma.org/jacoco/trunk/doc/maven.html">JaCoCo</a> est un projet pour la production de rapport de couverture de code
+par les tests. Configurez votre projet Maven pour utiliser le plugin Maven
+<a class="reference external" href="https://www.eclemma.org/jacoco/trunk/doc/maven.html">JaCoCo</a>.</p>
+<p>Pour produire un rapport, il est nécessaire de lancer l’objectif <code class="docutils literal notranslate"><span class="pre">jacoco:prepare-agent</span></code>,
+puis la phase <code class="docutils literal notranslate"><span class="pre">test</span></code> et enfin l’objectif <code class="docutils literal notranslate"><span class="pre">jacoco:report</span></code>. Vous pouvez
+associer l’objectif <code class="docutils literal notranslate"><span class="pre">jacoco:prepare-agent</span></code> à la phase <code class="docutils literal notranslate"><span class="pre">process-test-classes</span></code>
+et l’objectif <code class="docutils literal notranslate"><span class="pre">jacoco:report</span></code> à la phase <code class="docutils literal notranslate"><span class="pre">test</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Le rapport JaCoCo est disponible dans le répertoire <code class="file docutils literal notranslate"><span class="pre">target/site/jacoco/</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="deploiement-automatise-dans-tomcat">
+<h2>Déploiement automatisé dans Tomcat<a class="headerlink" href="#deploiement-automatise-dans-tomcat" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le serveur Tomcat intègre un gestionnaire d’application appelé le <strong>manager</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Le manager est simplement une application Web intégrée par défaut dans le serveur.</p>
+</div>
+<p>On peut accéder à ce gestionnaire à travers une application HTML pour les administrateurs
+ou à travers un échange de commandes pour un processus automatisé. Lorsque
+vous démarrez Tomcat sur votre machine, l’interface HTML du gestionnaire est accessible
+à l’adresse :</p>
+<blockquote>
+<div><p><a class="reference external" href="http://localhost:8080/manager">http://localhost:8080/manager</a></p>
+</div></blockquote>
+<p>L’application pour un processus automatisé est accessible à l’adresse :</p>
+<blockquote>
+<div><p><a class="reference external" href="http://localhost:8080/manager/text">http://localhost:8080/manager/text</a></p>
+</div></blockquote>
+<p>Pour des raisons de sécurité, l’accès au gestionnaire est contrôlé par une
+authentification login/mot de passe. Par défaut, aucun compte n’a le droit
+de se connecter à cette application.</p>
+</div>
+<div class="section" id="exercices">
+<h2>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">Créer un compte pour accéder au gestionnaire d’application de Tomcat</p>
+<p>Pour ajouter un utilisateur dans Tomcat, il faut éditer le fichier
+<code class="file docutils literal notranslate"><span class="pre">conf/tomcat-users.xml</span></code> depuis le répertoire d’installation de Tomcat.
+Assurez-vous avant que le serveur est bien arrêté.</p>
+<p>Dans ce fichier, on peut ajouter des éléments <code class="docutils literal notranslate"><span class="pre">&lt;user</span> <span class="pre">/&gt;</span></code> pour déclarer
+un compte avec son mot de passe et les rôles qu’il possède dans le serveur.
+Pour être autorisé à accéder à l’interface HTML du gestionnaire, un utilisateur
+doit avoir le rôle <code class="docutils literal notranslate"><span class="pre">manager-gui</span></code>. Pour être autorisé à accéder à l’interface
+de déploiement automatisé du gestionnaire, un utilisateur doit avoir le rôle
+<code class="docutils literal notranslate"><span class="pre">manager-script</span></code>. Par exemple :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;user</span> <span class="na">username=</span><span class="s">&quot;deployer&quot;</span> <span class="na">password=</span><span class="s">&quot;azerty&quot;</span> <span class="na">roles=</span><span class="s">&quot;manager-script,manager-gui&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>Ajoutez un compte utilisateur ayant les rôles nécessaires et accédez à l’interface
+HTML du gestionnaire.</p>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Déploiement d’une application Web Java avec Maven</p>
+<p>Pour cet exercice, nous allons utiliser le plugin
+<a class="reference external" href="https://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/">org.apache.tomcat.maven:tomcat7-maven-plugin</a>.</p>
+<p>Configurez le plugin Maven dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> de votre projet
+pour réaliser le déploiement d’une application Web dans Tomcat.</p>
+<p>Vérifiez que le déploiement fonctionne correctement en utilisant l’objectif
+<code class="docutils literal notranslate"><span class="pre">tomcat7:deploy</span></code> du plugin.</p>
+</div>
+</div>
+<div class="section" id="export-des-identifiants-du-serveur">
+<h2>Export des identifiants du serveur<a class="headerlink" href="#export-des-identifiants-du-serveur" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il est problématique d’écrire explicitement le login et le mot de passe du compte
+utilisateur pour réaliser le déploiement automatisé dans Tomcat. En effet, le fichier
+<code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> est souvent partagé au sein de l’équipe, voire au-delà. Avec Maven,
+il est possible de stocker certaines informations dans le fichier <code class="file docutils literal notranslate"><span class="pre">settings.xml</span></code>.
+Ce fichier doit être stocké de le répertoire <code class="file docutils literal notranslate"><span class="pre">.m2</span></code> dans le répertoire de
+votre compte utilisateur. Ainsi, il est possible de conserver des informations
+propres à l’utilisateur et non pas au projet.</p>
+<p>Le contenu minimal du fichier <code class="file docutils literal notranslate"><span class="pre">settings.xml</span></code> est :</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;settings</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span>
+      <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+      <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/SETTINGS/1.0.0</span>
+<span class="s">                          https://maven.apache.org/xsd/settings-1.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/settings&gt;</span>
+</pre></div>
+</div>
+<p>Ce fichier peut contenir un élément <code class="docutils literal notranslate"><span class="pre">&lt;servers/&gt;</span></code> qui peut lui-même contenir
+un ou des éléments <code class="docutils literal notranslate"><span class="pre">&lt;server/&gt;</span></code>. Le lien entre le serveur déclaré dans le fichier
+<code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> et la configuration déclarée dans le fichier <code class="file docutils literal notranslate"><span class="pre">settings.xml</span></code>
+se fait grâce à un identifiant unique du serveur (décidé par les développeurs).</p>
+<p>Pour plus d’information, vous pouvez consulter la documentation du fichier
+<code class="file docutils literal notranslate"><span class="pre">settings.xml</span></code> :</p>
+<blockquote>
+<div><p><a class="reference external" href="http://maven.apache.org/settings.html">http://maven.apache.org/settings.html</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="exercice-bonus">
+<h2>Exercice bonus<a class="headerlink" href="#exercice-bonus" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="exercice admonition">
+<p class="admonition-title">Externalisation de la configuration du serveur</p>
+<p>Reprenez votre projet Web et externalisez le <code class="docutils literal notranslate"><span class="pre">username</span></code> et le <code class="docutils literal notranslate"><span class="pre">password</span></code>
+dans le fichier <code class="file docutils literal notranslate"><span class="pre">settings.xml</span></code> pour que ces informations n’apparaissent
+plus dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> du projet.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="jenkins.html" class="btn btn-neutral float-right" title="Intégration continue avec Jenkins" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../git/git.html" class="btn btn-neutral float-left" title="Git" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright David Gayerie - david.gayerie@reseau-cd.net - CC-BY-SA
+
+    </p>
+  </div>
+    <div>Téléchargez ce support au format <a class="reference download" href="https://github.com/spoonless/epsi-b3-test/archive/gh-pages.zip">HTML</a>
+    </div>
+
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
