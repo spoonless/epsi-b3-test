@@ -161,10 +161,14 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Maven</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#utilisation-de-maven-en-ligne-de-commandes">Utilisation de Maven en ligne de commandes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notion-de-cycle-de-vie">Notion de cycle de vie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gestion-des-plugins-dans-maven">Gestion des plugins dans Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Exercice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#association-d-un-plugin-a-une-phase-d-execution">Association d’un plugin à une phase d’exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercice-a-rendre">Exercice à rendre</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deploiement-automatise-dans-tomcat">Déploiement automatisé dans Tomcat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exercices">Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Exercice à rendre</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#export-des-identifiants-du-serveur">Export des identifiants du serveur</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exercice-bonus">Exercice bonus</a></li>
 </ul>
@@ -249,61 +253,110 @@
             
   <div class="section" id="maven">
 <h1>Maven<a class="headerlink" href="#maven" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Dans ce chapitre, nous allons voir comment configurer des plugins avec Maven pour une application Java.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Pour la partie industrialisation des processus de test, nous nous baserons
+sur le projet Pizza-Spring. Vous devez télécharger le code source ici :</p>
+<blockquote>
+<div><p><a class="reference download internal" download="" href="../_downloads/083a19358e1188e808e692dfdba83457/pizza-spring.zip"><code class="xref download docutils literal notranslate"><span class="pre">pizza-spring.zip</span></code></a></p>
+</div></blockquote>
+<p>Si vous voulez lancer l’application, pensez qu’elle nécessite une base de données.
+Le schéma MySQL se trouve dans <code class="file docutils literal notranslate"><span class="pre">src/main/sql/db_pizza.sql</span></code> et le fichier
+de configuration pour l’accès à la base de données est
+<code class="file docutils literal notranslate"><span class="pre">src/main/resources/jdbc.properties</span></code>.</p>
+</div>
+<p>Dans ce chapitre, nous allons voir comment configurer des plugins avec Maven
+pour une application Java. L’utilisation de plugins permet d’enrichir les tâches
+automatiques à réaliser lors de la construction de notre projet. Ainsi, nous allons
+pouvoir, non seulement exécuter les tests automatisés, mais également produire
+des rapports et des métriques à partir de l’exécution des tests ou encore déployer
+notre application dans Tomcat.</p>
 <div class="section" id="utilisation-de-maven-en-ligne-de-commandes">
 <h2>Utilisation de Maven en ligne de commandes<a class="headerlink" href="#utilisation-de-maven-en-ligne-de-commandes" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Maven découpe la construction du projet en phases. L’ensemble
-de ces phases décrit le cycle de vie d’un projet. En ligne de commandes, on peut
-invoquer Maven depuis un répertoire contenant un fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> en
-précisant la phase que l’on souhaite atteindre :</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn package
-</pre></div>
-</div>
-<p>Dans l’exemple ci-dessus, la phase <code class="docutils literal notranslate"><span class="pre">package</span></code> indique que l’on souhaite construire
-le livrable. Pour une application Java, Maven va produire un fichier JAR dans le
-répertoires <code class="file docutils literal notranslate"><span class="pre">target</span></code>. La phase <code class="docutils literal notranslate"><span class="pre">package</span></code> implique de réaliser toutes les
-phases antérieures du cycle de vie. Par exemple, les phases
-<code class="docutils literal notranslate"><span class="pre">compile</span></code> et <code class="docutils literal notranslate"><span class="pre">test</span></code> qui, respectivement, compile le code source et exécute les
-tests automatisés seront réalisées avant.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Pour plus d’info sur le cycle de vie d’un projet Maven, consultez la page :</p>
-<p><a class="reference external" href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html</a></p>
-</div>
-<p>Il est possible de préciser plusieurs phases à Maven. Par exemple :</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn clean package
-</pre></div>
-</div>
-<p>Dans ce cas, Maven va commencer par supprimer tous les fichiers de travail (le
-contenu du répertoire <code class="file docutils literal notranslate"><span class="pre">target</span></code>) et reconstruire le projet à partir de zéro.</p>
+<p>Si Maven est un outil intégré aux environnements de développement Java (Eclipse, IntelliJ, NetBeans),
+il s’agit néanmoins d’un outil autonome qu’il est possible d’exécuter depuis
+la ligne de commandes. Nous allons voir comment nous affranchir des environnements
+de développement et comment appeler directement Maven. En ligne de commandes,
+le programme Maven s’appelle : <code class="file docutils literal notranslate"><span class="pre">mvn</span></code></p>
 </div>
 <div class="section" id="exercice">
 <h2>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="exercice admonition">
 <p class="admonition-title">Tester Maven en ligne de commandes</p>
-<p>Téléchargez Maven depuis :</p>
-<p><a class="reference external" href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a></p>
 <ol class="arabic">
-<li><p>Dézipper l’archive dans <code class="file docutils literal notranslate"><span class="pre">c:Program</span> <span class="pre">Files</span></code></p></li>
+<li><p>Téléchargez Maven depuis : <a class="reference external" href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a></p></li>
+<li><p>Dézippez l’archive sur votre disque (par exemple dans <code class="file docutils literal notranslate"><span class="pre">c:\Program</span> <span class="pre">Files</span></code> sous Windows)</p></li>
 <li><p>Dans les variables d’environnement du système, ajoutez les variables suivantes :</p>
 <blockquote>
 <div><dl class="simple">
 <dt>M2_HOME</dt><dd><p>Cette variable d’environnement doit indiquer le chemin du répertoire
 dézippé.</p>
 </dd>
-<dt>PATH</dt><dd><p>Modifiez cette variable d’environnement pour ajouter <code class="file docutils literal notranslate"><span class="pre">%M2_HOME%/bin</span></code>
-dans la liste des chemins des applications.</p>
+<dt>PATH</dt><dd><p>Modifiez cette variable d’environnement pour ajouter <code class="file docutils literal notranslate"><span class="pre">%M2_HOME%\bin</span></code>
+dans la liste des chemins des applications (pour Linux ou MacOS, ajoutez
+<code class="file docutils literal notranslate"><span class="pre">$M2_HOME/bin</span></code></p>
 </dd>
 </dl>
 </div></blockquote>
 </li>
 </ol>
-<p>En ligne de commandes, déplacez-vous dans le répertoire de votre projet Maven
-et tapez :</p>
+<p>Ouvrez une fenêtre de ligne de commandes, et déplacez-vous dans le répertoire
+de votre projet Maven grâce à la commande <code class="docutils literal notranslate"><span class="pre">cd</span></code> (c’est-à-dire le répertoire
+qui contient le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>). Une fois positionné dans le répertoire
+du projet, tapez :</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn clean package
 </pre></div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Si vous obtenez une erreur car Maven n’arrive pas à trouver de JDK sur
+votre disque, vous devez également réaliser les étapes suivantes :</p>
+<ol class="arabic simple">
+<li><p>ajoutez la variable d’environnement <strong>JAVA_HOME</strong> indiquant le répertoire
+d’installation du JDK (par exemple, sous Windows <code class="file docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Java\jdk-11</span></code>),</p></li>
+<li><p>fermez et ouvrir à nouveau votre fenêtre de ligne de commandes,</p></li>
+<li><p>déplacez-vous dans le répertoire de votre projet grâce à la commande <code class="docutils literal notranslate"><span class="pre">cd</span></code>,</p></li>
+<li><p>relancez la commande Maven.</p></li>
+</ol>
 </div>
+</div>
+</div>
+<div class="section" id="notion-de-cycle-de-vie">
+<h2>Notion de cycle de vie<a class="headerlink" href="#notion-de-cycle-de-vie" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Maven découpe la construction du projet en phases. L’ensemble
+de ces phases décrit le cycle de vie d’un projet. Les phases les plus importantes
+sont :</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">validate</span></code> : valide si le projet est correct</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compile</span></code> : compile les sources du projet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code> : exécute les tests unitaires</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package</span></code> : crée un package pour le projet compilé (par exemple un fichier
+JAR pour un programme Java et un fichier WAR pour une application Web Java)</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour plus d’info sur le cycle de vie d’un projet Maven, consultez la page :</p>
+<p><a class="reference external" href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html</a></p>
+</div>
+<p>En ligne de commandes, on invoque Maven depuis le répertoire contenant le fichier
+<code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> en précisant la phase que l’on souhaite atteindre :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn package
+</pre></div>
+</div>
+<p>Dans l’exemple ci-dessus, la phase <code class="docutils literal notranslate"><span class="pre">package</span></code> indique que l’on souhaite construire
+le livrable (un fichier JAR ou WAR par exemple) dans le
+répertoires <code class="file docutils literal notranslate"><span class="pre">target</span></code>. La phase <code class="docutils literal notranslate"><span class="pre">package</span></code> implique de réaliser toutes les
+phases antérieures du cycle de vie. Par exemple, les phases
+<code class="docutils literal notranslate"><span class="pre">compile</span></code> et <code class="docutils literal notranslate"><span class="pre">test</span></code> qui, respectivement, compile le code source et exécute les
+tests automatisés seront réalisées avant. Donc Maven garantit que la construction
+du package se fera à partir des dernières sources compilées et que les tests
+unitaires automatisés auront été exécutés avec succès.</p>
+<p>Il est possible de préciser plusieurs phases à Maven. Par exemple :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn clean package
+</pre></div>
+</div>
+<p>Dans ce cas, Maven va commencer par supprimer tous les fichiers de travail (le
+contenu du répertoire <code class="file docutils literal notranslate"><span class="pre">target</span></code>) et reconstruire le projet à partir de zéro.</p>
 </div>
 <div class="section" id="gestion-des-plugins-dans-maven">
 <h2>Gestion des plugins dans Maven<a class="headerlink" href="#gestion-des-plugins-dans-maven" title="Lien permanent vers ce titre">¶</a></h2>
@@ -313,7 +366,7 @@ phase du cycle de vie est associée à l’exécution de un ou plusieurs plugins
 Maven, il est possible d’exécuter un plugin directement à partir de la ligne
 de commandes. Il est également possible de déclarer explicitement un plugin
 dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> pour spécifier des paramètres de configuration et/ou
-exécuter ce plugin explicitement à une phase du cycle de vie.</p>
+exécuter ce plugin à une phase précise du cycle de vie.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Par défaut, certains plugins sont déjà configurés pour s’exécuter à certaines
@@ -321,25 +374,37 @@ phases du cycle de vie. Par exemple, le <a class="reference external" href="http
 par défaut lors de la phase <code class="docutils literal notranslate"><span class="pre">compile</span></code>.</p>
 </div>
 <p>Un plugin est un artefact Maven. Donc, il est identifié par un ID de groupe,
-un ID d’artefact et une version. On sépare l’ID de groupe et l’ID d’artefact
-avec <code class="docutils literal notranslate"><span class="pre">:</span></code>. On précise enfin l’objectif que l’on invoque sur le plugin. Chaque
+un ID d’artefact et une version. En ligne de commandes, on sépare l’ID de groupe, l’ID d’artefact et la version
+avec <code class="docutils literal notranslate"><span class="pre">:</span></code>. On précise enfin l’objectif (<em>goal</em>) que l’on invoque sur le plugin. Chaque
 plugin dispose de ses propres objectifs qui sont les actions à réaliser.
 Il faut donc consulter la documentation de chaque plugin.</p>
-<div class="exercice admonition">
-<p class="admonition-title">Exécuter le plugin de compilation</p>
-<p>Appelez directement l’objectif <code class="docutils literal notranslate"><span class="pre">compile</span></code> du plugin de compilation java :</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn org.apache.maven.plugins:maven-compiler-plugin:compile
+<p>Par exemple, pour appeler directement l’objectif (<em>goal</em>) <code class="docutils literal notranslate"><span class="pre">compile</span></code> du plugin
+de compilation en version 3.1, on peut écrire :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn org.apache.maven.plugins:maven-compiler-plugin:3.1:compile
 </pre></div>
 </div>
-<p>La plupart des plugins ont un objectif <code class="docutils literal notranslate"><span class="pre">help</span></code> :</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn org.apache.maven.plugins:maven-compiler-plugin:help
-</pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Pour trouver le documentation d’un plugin, il suffit la plupart du temps
+d’utiliser un moteur de recherche avec les mots-clés : maven plugin
+suivi du nom du plugin.</p>
 </div>
 </div>
+<div class="section" id="id1">
+<h2>Exercice<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="exercice admonition">
 <p class="admonition-title">Exécuter un plugin en ligne de commandes</p>
-<p>Utiliser le plugin <a class="reference external" href="https://maven.apache.org/plugins/maven-dependency-plugin/">maven-dependency-plugin</a> (groupe ID <code class="docutils literal notranslate"><span class="pre">org.apache.maven.plugins</span></code>)
-pour afficher la liste des dépendances du projet.</p>
+<p>Utiliser le plugin <a class="reference external" href="https://maven.apache.org/plugins/maven-dependency-plugin/">maven-dependency-plugin</a> (groupe ID <code class="docutils literal notranslate"><span class="pre">org.apache.maven.plugins</span></code>
+et version 2.8) pour afficher la liste des dépendances du projet.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Pour connaître les objectifs (<em>goals</em>) disponible sur un plugin, vous
+pouvez utiliser l’objectif <code class="docutils literal notranslate"><span class="pre">help</span></code>. Par exemple, pour obtenir l’aide
+du <code class="docutils literal notranslate"><span class="pre">maven-compiler-plugin</span></code> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn org.apache.maven.plugins:maven-compiler-plugin:3.1:help
+</pre></div>
+</div>
+</div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Astuce</p>
@@ -349,11 +414,15 @@ donner le nom court du plugin :</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn quelquechose:help
 </pre></div>
 </div>
+<p>Par exemple :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn dependency:help
+</pre></div>
+</div>
 </div>
 <p>Pour déclarer un plugin pour un projet particulier, on peut ajouter dans le fichier
-<code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>, une entrée pour le plugin.</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Déclaration d’un plugin dans le fichier pom.xml</span><a class="headerlink" href="#id1" title="Lien permanent vers ce code">¶</a></div>
+<code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>, une entrée pour ce plugin.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Déclaration d’un plugin dans le fichier pom.xml</span><a class="headerlink" href="#id4" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
          <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
          <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0</span>
@@ -386,47 +455,14 @@ donner le nom court du plugin :</p>
 afin de passer des paramètres de configuration pour indiquer la version du
 langage utilisé pour les sources et pour les fichiers de classes, l’encodage
 des fichiers et le niveau de détail à afficher.</p>
-<p>Certains paramètres de configuration peuvent directement être spécifiés en ligne
-de commandes grâce à l’option <code class="docutils literal notranslate"><span class="pre">-D</span></code>. Malheureusement, il n’existe pas de
-façon standard de préciser un paramètre de plugin dans Maven. Il faut donc
-se référer à la documentation de chaque plugin.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mvn compile -Dmaven.compiler.verbose<span class="o">=</span><span class="nb">false</span>
-</pre></div>
-</div>
-<p>Pour un paramètre propre au projet, il est plus intéressant de spécifier
-la valeur du paramètre une bonne fois dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>.
-Si on ne veut pas configurer chaque plugin, il est possible de déclarer
-une section <code class="docutils literal notranslate"><span class="pre">&lt;properties/&gt;</span></code> dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> :</p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Déclaration des propriétés dans le fichier pom.xml</span><a class="headerlink" href="#id2" title="Lien permanent vers ce code">¶</a></div>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
-         <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-         <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0</span>
-<span class="s">                             http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>io.github.spoonless<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>demoapp<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-
-  <span class="nt">&lt;properties&gt;</span>
-    <span class="nt">&lt;maven.compiler.source&gt;</span>11<span class="nt">&lt;/maven.compiler.source&gt;</span>
-    <span class="nt">&lt;maven.compiler.target&gt;</span>11<span class="nt">&lt;/maven.compiler.target&gt;</span>
-    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
-    <span class="nt">&lt;maven.compiler.verbose&gt;</span>true<span class="nt">&lt;/maven.compiler.verbose&gt;</span>
-  <span class="nt">&lt;/properties&gt;</span>
-
-<span class="nt">&lt;/project&gt;</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="association-d-un-plugin-a-une-phase-d-execution">
 <h2>Association d’un plugin à une phase d’exécution<a class="headerlink" href="#association-d-un-plugin-a-une-phase-d-execution" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Pour déclencher un plugin lors d’une phase précise, il suffit d’utiliser
 l’élément <code class="docutils literal notranslate"><span class="pre">&lt;execution/&gt;</span></code> pour préciser la phase concernée, l’objectif à
 exécuter et la configuration associée :</p>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Déclaration d’un plugin en associant un objectif à une phase</span><a class="headerlink" href="#id3" title="Lien permanent vers ce code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Déclaration d’un plugin en associant un objectif à une phase</span><a class="headerlink" href="#id6" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
          <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
          <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0</span>
@@ -464,9 +500,16 @@ exécuter et la configuration associée :</p>
 </div>
 </div>
 <p>Dans l’exemple ci-dessous, l’objectif <code class="docutils literal notranslate"><span class="pre">check</span></code> du <a class="reference external" href="https://maven.apache.org/plugins/maven-checkstyle-plugin/">maven-checkstyle-plugin</a>  est
-lancé automatiquement lors de la phase <code class="docutils literal notranslate"><span class="pre">package</span></code>.</p>
+lancé automatiquement lors de la phase <code class="docutils literal notranslate"><span class="pre">package</span></code>. Dans l’élément <code class="docutils literal notranslate"><span class="pre">&lt;execution/&gt;</span></code>
+on définit la phase concernée, l’objectif (<em>goal</em>) à lancer pour ce plugin et
+éventuellement une configuration. Notez que l’élément <code class="docutils literal notranslate"><span class="pre">&lt;id/&gt;</span></code> est obligatoire
+mais ne sert qu’à nommer de manière unique chaque exécution déclarée dans le fichier
+<code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>.</p>
+</div>
+<div class="section" id="exercice-a-rendre">
+<h2>Exercice à rendre<a class="headerlink" href="#exercice-a-rendre" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="exercice admonition">
-<p class="admonition-title">Utiliser le plugin JaCoCo</p>
+<p class="admonition-title">Utiliser le plugin JaCoCo (exercice à rendre)</p>
 <p><a class="reference external" href="https://www.eclemma.org/jacoco/trunk/doc/maven.html">JaCoCo</a> est un projet pour la production de rapport de couverture de code
 par les tests. Configurez votre projet Maven pour utiliser le plugin Maven
 <a class="reference external" href="https://www.eclemma.org/jacoco/trunk/doc/maven.html">JaCoCo</a>.</p>
@@ -478,6 +521,14 @@ et l’objectif <code class="docutils literal notranslate"><span class="pre">jac
 <p class="admonition-title">Astuce</p>
 <p>Le rapport JaCoCo est disponible dans le répertoire <code class="file docutils literal notranslate"><span class="pre">target/site/jacoco/</span></code>.</p>
 </div>
+<dl>
+<dt>Rendu du projet</dt><dd><p>Pour partager votre projet, créez un dépôt Git sur <a class="reference external" href="https://github.com">https://github.com</a> ou
+sur <a class="reference external" href="https://gitlab.com">https://gitlab.com</a>, partagez les sources du projet pizza-spring avec
+vos modifications grâce à ce dépôt distant.
+Transmettez l’adresse de votre dépôt Git par mail à : <a class="reference external" href="mailto:david&#46;gayerie&#37;&#52;&#48;reseau-cd&#46;net">david<span>&#46;</span>gayerie<span>&#64;</span>reseau-cd<span>&#46;</span>net</a></p>
+<p>Pensez à créer à un dépôt public afin qu’il soit accessible facilement.</p>
+</dd>
+</dl>
 </div>
 </div>
 <div class="section" id="deploiement-automatise-dans-tomcat">
@@ -502,33 +553,64 @@ vous démarrez Tomcat sur votre machine, l’interface HTML du gestionnaire est 
 authentification login/mot de passe. Par défaut, aucun compte n’a le droit
 de se connecter à cette application.</p>
 </div>
-<div class="section" id="exercices">
-<h2>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="id2">
+<h2>Exercice<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="exercice admonition">
 <p class="admonition-title">Créer un compte pour accéder au gestionnaire d’application de Tomcat</p>
 <p>Pour ajouter un utilisateur dans Tomcat, il faut éditer le fichier
 <code class="file docutils literal notranslate"><span class="pre">conf/tomcat-users.xml</span></code> depuis le répertoire d’installation de Tomcat.
 Assurez-vous avant que le serveur est bien arrêté.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Vous ne pouvez pas utiliser le serveur Tomcat installé dans votre
+environnement Eclipse. En effet, il s’agit d’une version allégée qui
+n’inclut pas le gestionnaire d’application.</p>
+<p>Pour démarrer Tomcat, vous devez allez dans le répertoire d’installation
+de Tomcat. Dans le répertoire <code class="file docutils literal notranslate"><span class="pre">bin</span></code>, vous trouverez le script
+<code class="file docutils literal notranslate"><span class="pre">startup.bat</span></code> (ou <code class="file docutils literal notranslate"><span class="pre">startup.sh</span></code> selon votre système d’exploitation).
+Double-cliquez sur ce fichier pour démarrer le serveur dans une fenêtre
+de ligne de commandes.</p>
+</div>
 <p>Dans ce fichier, on peut ajouter des éléments <code class="docutils literal notranslate"><span class="pre">&lt;user</span> <span class="pre">/&gt;</span></code> pour déclarer
 un compte avec son mot de passe et les rôles qu’il possède dans le serveur.
 Pour être autorisé à accéder à l’interface HTML du gestionnaire, un utilisateur
 doit avoir le rôle <code class="docutils literal notranslate"><span class="pre">manager-gui</span></code>. Pour être autorisé à accéder à l’interface
 de déploiement automatisé du gestionnaire, un utilisateur doit avoir le rôle
 <code class="docutils literal notranslate"><span class="pre">manager-script</span></code>. Par exemple :</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;user</span> <span class="na">username=</span><span class="s">&quot;deployer&quot;</span> <span class="na">password=</span><span class="s">&quot;azerty&quot;</span> <span class="na">roles=</span><span class="s">&quot;manager-script,manager-gui&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;role</span> <span class="na">rolename=</span><span class="s">&quot;manager-script&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;role</span> <span class="na">rolename=</span><span class="s">&quot;manager-gui&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;user</span> <span class="na">username=</span><span class="s">&quot;deployer&quot;</span> <span class="na">password=</span><span class="s">&quot;azerty&quot;</span> <span class="na">roles=</span><span class="s">&quot;manager-script,manager-gui&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<p>Ajoutez un compte utilisateur ayant les rôles nécessaires et accédez à l’interface
-HTML du gestionnaire.</p>
+<p>Ajoutez un compte utilisateur ayant les rôles nécessaires, démarrez votre
+serveur Tomcat et accédez à l’interface HTML du gestionnaire :</p>
+<blockquote>
+<div><p><a class="reference external" href="http://localhost:8080/manager">http://localhost:8080/manager</a></p>
+</div></blockquote>
 </div>
+</div>
+<div class="section" id="id3">
+<h2>Exercice à rendre<a class="headerlink" href="#id3" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="exercice admonition">
-<p class="admonition-title">Déploiement d’une application Web Java avec Maven</p>
+<p class="admonition-title">Déploiement d’une application Web Java avec Maven (exercice à rendre)</p>
 <p>Pour cet exercice, nous allons utiliser le plugin
 <a class="reference external" href="https://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/">org.apache.tomcat.maven:tomcat7-maven-plugin</a>.</p>
 <p>Configurez le plugin Maven dans le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code> de votre projet
-pour réaliser le déploiement d’une application Web dans Tomcat.</p>
-<p>Vérifiez que le déploiement fonctionne correctement en utilisant l’objectif
+pour réaliser le déploiement d’une application Web dans Tomcat après la
+création du package.</p>
+<p>Vérifiez que le déploiement fonctionne correctement en utilisant l’objectif (<em>goal</em>)
 <code class="docutils literal notranslate"><span class="pre">tomcat7:deploy</span></code> du plugin.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Pour réaliser cet exercice, vous avez impérativement besoin d’un couple
+login/mon de passe pour que le plugin puisse se connecter au gestionnaire
+de déploiement (Cf. exercice précédent).</p>
+</div>
+<dl class="simple">
+<dt>Rendu du projet</dt><dd><p>Faites évoluer votre projet et utilisez la commande <code class="docutils literal notranslate"><span class="pre">push</span></code> dans Git
+pour partager vos nouvelles modifications dans votre dépôt distant.</p>
+</dd>
+</dl>
 </div>
 </div>
 <div class="section" id="export-des-identifiants-du-serveur">
