@@ -512,7 +512,12 @@ mais ne sert qu’à nommer de manière unique chaque exécution déclarée dans
 <p class="admonition-title">Utiliser le plugin JaCoCo (exercice à rendre)</p>
 <p><a class="reference external" href="https://www.eclemma.org/jacoco/trunk/doc/maven.html">JaCoCo</a> est un projet pour la production de rapport de couverture de code
 par les tests. Configurez votre projet Maven pour utiliser le plugin Maven
-<a class="reference external" href="https://www.eclemma.org/jacoco/trunk/doc/maven.html">JaCoCo</a>.</p>
+<a class="reference external" href="https://www.eclemma.org/jacoco/trunk/doc/maven.html">JaCoCo</a>. Les informations pour le plugin :</p>
+<ul class="simple">
+<li><p>group ID : org.jacoco</p></li>
+<li><p>artefact ID : jacoco-maven-plugin</p></li>
+<li><p>version : 0.8.5</p></li>
+</ul>
 <p>Pour produire un rapport, il est nécessaire de lancer l’objectif <code class="docutils literal notranslate"><span class="pre">jacoco:prepare-agent</span></code>,
 puis la phase <code class="docutils literal notranslate"><span class="pre">test</span></code> et enfin l’objectif <code class="docutils literal notranslate"><span class="pre">jacoco:report</span></code>. Vous pouvez
 associer l’objectif <code class="docutils literal notranslate"><span class="pre">jacoco:prepare-agent</span></code> à la phase <code class="docutils literal notranslate"><span class="pre">process-test-classes</span></code>
