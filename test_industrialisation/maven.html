@@ -283,9 +283,10 @@ le programme Maven s’appelle : <code class="file docutils literal notranslate"
 <h2>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="exercice admonition">
 <p class="admonition-title">Tester Maven en ligne de commandes</p>
+<p><strong>Pour Windows</strong></p>
 <ol class="arabic">
-<li><p>Téléchargez Maven depuis : <a class="reference external" href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a></p></li>
-<li><p>Dézippez l’archive sur votre disque (par exemple dans <code class="file docutils literal notranslate"><span class="pre">c:\Program</span> <span class="pre">Files</span></code> sous Windows)</p></li>
+<li><p><a class="reference external" href="https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip">Téléchargez l’archive zip de Maven</a></p></li>
+<li><p>Dézippez l’archive sur votre disque (par exemple dans <code class="file docutils literal notranslate"><span class="pre">c:\Program</span> <span class="pre">Files</span></code>)</p></li>
 <li><p>Dans les variables d’environnement du système, ajoutez les variables suivantes :</p>
 <blockquote>
 <div><dl class="simple">
@@ -293,14 +294,54 @@ le programme Maven s’appelle : <code class="file docutils literal notranslate"
 dézippé.</p>
 </dd>
 <dt>PATH</dt><dd><p>Modifiez cette variable d’environnement pour ajouter <code class="file docutils literal notranslate"><span class="pre">%M2_HOME%\bin</span></code>
-dans la liste des chemins des applications (pour Linux ou MacOS, ajoutez
-<code class="file docutils literal notranslate"><span class="pre">$M2_HOME/bin</span></code></p>
+dans la liste des chemins des applications.</p>
 </dd>
 </dl>
 </div></blockquote>
 </li>
 </ol>
-<p>Ouvrez une fenêtre de ligne de commandes, et déplacez-vous dans le répertoire
+<p><strong>Pour MacOS</strong></p>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz">Téléchargez l’archive tar.gz de Maven</a></p></li>
+<li><p>Dézippez l’archive dans le répertoire de téléchargement</p></li>
+<li><p>Dans un terminal, déplacez le répertoire créé dans le répertoire des applications :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mv Downloads/apache-maven-3.6.3 /Applications/
+</pre></div>
+</div>
+</li>
+<li><p>Créez si nécessaire un fichier <code class="file docutils literal notranslate"><span class="pre">.bash_profile</span></code> et éditez ce fichier :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>touch .bash_profile
+open -e .bash_profile
+</pre></div>
+</div>
+</li>
+<li><p>À la fin du fichier, ajoutez la déclaration des variables d’environnement
+<strong>M2_HOME</strong> et <strong>PATH</strong> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">M2_HOME</span><span class="o">=</span>/Applications/apache-maven-3.6.3
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$M2_HOME</span>/bin:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+</li>
+<li><p>Pour que les modifications soient prises en compte dans votre terminal courant,
+vous devez sourcer le fichier <code class="file docutils literal notranslate"><span class="pre">.bash_profile</span></code> :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> .bash_profile
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si vous utilisez zsh plutôt que bash, vous devez modifier le fichier
+<code class="file docutils literal notranslate"><span class="pre">.zprofile</span></code> et non pas le fichier <code class="file docutils literal notranslate"><span class="pre">.bash_profile</span></code>.</p>
+</div>
+<p><strong>Pour Linux</strong></p>
+<p>Le plus simple est d’utiliser votre gestionnaire de packages pour installer
+maven. Pour une distribution basée sur Debian, vous pouvez taper la commande :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt install maven
+</pre></div>
+</div>
+<p><strong>Tester l’installation</strong></p>
+<p>Ouvrez une fenêtre de terminal, et déplacez-vous dans le répertoire
 de votre projet Maven grâce à la commande <code class="docutils literal notranslate"><span class="pre">cd</span></code> (c’est-à-dire le répertoire
 qui contient le fichier <code class="file docutils literal notranslate"><span class="pre">pom.xml</span></code>). Une fois positionné dans le répertoire
 du projet, tapez :</p>
@@ -313,8 +354,12 @@ du projet, tapez :</p>
 votre disque, vous devez également réaliser les étapes suivantes :</p>
 <ol class="arabic simple">
 <li><p>ajoutez la variable d’environnement <strong>JAVA_HOME</strong> indiquant le répertoire
-d’installation du JDK (par exemple, sous Windows <code class="file docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Java\jdk-11</span></code>),</p></li>
-<li><p>fermez et ouvrir à nouveau votre fenêtre de ligne de commandes,</p></li>
+d’installation du JDK. Pour Windows, votre JDK devrait être installé
+dans le répertoire <code class="file docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Java</span></code> (par exemple,
+<code class="file docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Java\jdk-11</span></code>). Pour Linux, vous devriez
+trouver les différentes versions de Java installées dans le répertoire
+<code class="file docutils literal notranslate"><span class="pre">/usr/lib/jvm/</span></code>.</p></li>
+<li><p>fermez et ouvrez à nouveau votre fenêtre de terminal,</p></li>
 <li><p>déplacez-vous dans le répertoire de votre projet grâce à la commande <code class="docutils literal notranslate"><span class="pre">cd</span></code>,</p></li>
 <li><p>relancez la commande Maven.</p></li>
 </ol>
