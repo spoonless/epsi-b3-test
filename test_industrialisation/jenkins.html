@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="../_static/custom_rtd_theme.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Selenium" href="../test_acceptation/selenium.html" />
     <link rel="prev" title="Maven" href="maven.html" /> 
 </head>
 
@@ -174,7 +175,59 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Intégration continue avec Jenkins</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation-de-jenkins">Installation de Jenkins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercice">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-d-un-job">Configuration d’un job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Exercice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-d-un-job-suite">Configuration d’un job (suite)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exercices">Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test_acceptation/selenium.html">Selenium</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/selenium.html#selenium-ide">Selenium IDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#enregistrer-des-commandes">Enregistrer des commandes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#notion-de-commande">Notion de commande</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#finaliser-un-test">Finaliser un test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#sauver-les-tests">Sauver les tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#creation-de-suites-de-tests">Création de suites de tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#bonnes-pratiques">Bonnes pratiques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/selenium.html#exercice-a-rendre">Exercice à rendre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/selenium.html#web-driver">Web Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#installation-du-web-driver-pour-chrome">Installation du Web Driver pour Chrome</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../test_acceptation/selenium.html#windows">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test_acceptation/selenium.html#macos">MacOs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../test_acceptation/selenium.html#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#utilisation-d-un-binding">Utilisation d’un binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#gestion-de-l-attente">Gestion de l’attente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#exporter-les-tests-selenium-ide">Exporter les tests Selenium IDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#page-object-models">Page object models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/selenium.html#executer-les-tests-selenium-a-la-phase-integration-test-de-maven">Exécuter les tests Selenium à la phase integration-test de Maven</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/selenium.html#id1">Exercice à rendre</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test_acceptation/cucumber.html">Cucumber</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/cucumber.html#behavior-driven-development-bdd">Behavior-Driven-Development (BDD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/cucumber.html#ecrire-des-scenarios-avec-cucumber">Écrire des scénarios avec Cucumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/cucumber.html#automatiser-les-scenarios-en-java">Automatiser les scénarios en Java</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#les-classes-d-implementation-des-etapes">Les classes d’implémentation des étapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#la-classe-de-lancement-junit">La classe de lancement JUnit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/cucumber.html#integration-avec-selenium">Intégration avec Selenium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/cucumber.html#pour-aller-plus-loin">Pour aller plus loin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#le-plan-de-scenario">Le plan de scénario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#le-contexte">Le contexte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#les-tags">Les tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../test_acceptation/cucumber.html#l-injection-de-dependances">L’injection de dépendances</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../test_acceptation/cucumber.html#exercice-a-rendre">Exercice à rendre</a></li>
 </ul>
 </li>
 </ul>
@@ -238,6 +291,8 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
+        <a href="../test_acceptation/selenium.html" class="btn btn-neutral float-right" title="Selenium" accesskey="n">Suivant <span class="fa fa-arrow-circle-right"></span></a>
+      
       
         <a href="maven.html" class="btn btn-neutral" title="Maven" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
       
@@ -254,13 +309,50 @@
 certain nombre d’opérations (compilation, packaging, tests) afin de les réaliser
 aussi souvent que nécessaire. Une équipe de développement peut ainsi créer un
 <em>pipeline</em> automatisé de développement lui permettant de vérifier la qualité de ce
-qui est produit au fur et à mesure des développements.</p>
+qui est produit au fur et à mesure des développements. Le serveur <a class="reference external" href="https://jenkins.io/index.html">Jenkins</a> a pour
+tâche de créer les livrables et de les mettre à disposition dans un environnement
+d’intégration dès que les développeurs valident les modifications du code
+(la plupart du temps, lorsqu’ils <em>commitent</em> en utilisant un système de gestion
+de source comme Git). Ainsi les modifications de l’application sont rendues
+disponibles au plus tôt pour leur validation : l’intégration est réalisée de
+manière continue et non à la fin de la phase des développements.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nous allons voir dans ce chapitre un exemple d’intégration continue en
+utilisant Jenkins et Maven. Cependant, l’intégration continue ne peut pas
+être réduite à la mise en place d’outils. Il s’agit avant tout d’une façon
+particulière d’appréhender le développement logiciel. Elle a été popularisée
+par l’eXtreme Programming (une des méthodes agiles) qui en a fait une
+des bonnes pratiques à mettre en place dans l’organisation des équipes.</p>
+<p>L’intégration continue marque une rupture par rapport au développement
+<em>classique</em> de logiciel selon la méthode de gestion de projet. Dans la gestion
+de projet, on considère que la réalisation d’un projet se fait par une succession
+de phases. D’abord l’équipe doit réaliser la totalité des développements, puis
+une phase d’intégration permet de déployer la solution dans un environnement
+de test, suivie par la phase de recette qui permet de valider le bon
+fonctionnement de l’ensemble de la solution.</p>
+<p>Les promoteurs de l’intégration continue insistent sur le risque important
+à réaliser l’intégration après les développements car cela repousse d’autant
+la capacité des testeurs et des utilisateurs à valider les développements.
+Avec l’intégration continue, on cherche avant tout à réduire le délai entre
+le moment où l’équipe de développement a implémenté une nouvelle fonctionnalité
+(ou fixé un bug) et le moment de sa mise à disposition dans un environnement
+de test. Le recours à des outils comme <a class="reference external" href="https://jenkins.io/index.html">Jenkins</a> permet simplement de
+simplifier le travail de l’équipe en prenant en charge automatiquement les
+tâches répétitives.</p>
+</div>
 <div class="section" id="installation-de-jenkins">
 <h2>Installation de Jenkins<a class="headerlink" href="#installation-de-jenkins" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Pour Windows, <a class="reference external" href="https://jenkins.io/index.html">Jenkins</a> est disponible sous la forme d’un exécutable qui s’installe comme un service.
-Mais <a class="reference external" href="https://jenkins.io/index.html">Jenkins</a> est en fait une application Web Java. Il est donc aussi téléchargeable
-sous la forme d’un fichier WAR qui peut être déployé dans un serveur Web Java.</p>
-<p>Pour simplifier l’exécution, les développeurs ont intégré un mini serveur Web
+<p><a class="reference external" href="https://jenkins.io/index.html">Jenkins</a> est disponible en téléchargement sous plusieurs formats. Vous pouvez,
+par exemple, télécharger l’exécutable pour Windows et installer <a class="reference external" href="https://jenkins.io/index.html">Jenkins</a> comme
+un service. Pour une installation en entreprise, c’est la solution recommandée
+pour la mise en place d’un serveur. Comme nous voulons juste comprendre comment
+fonctionne un serveur d’intégration continue, nous nous limiterons à lancer
+manuellement le serveur afin de ne pas installer de service supplémentaire sur
+votre machine de développement.</p>
+<p><a class="reference external" href="https://jenkins.io/index.html">Jenkins</a> est en fait une application Web Java. Il est donc aussi téléchargeable
+sous la forme d’un fichier WAR qui peut être déployé dans un serveur Web Java.
+Pour simplifier l’exécution, les développeurs ont intégré un mini serveur Web
 à l’intérieur du fichier WAR. De manière exceptionnelle, l’application Web est
 donc directement exécutable. Pour cela, il faut se rendre en ligne de commandes
 dans le répertoire contenant le fichier <code class="file docutils literal notranslate"><span class="pre">jenkins.war</span></code> et taper la commande :</p>
@@ -268,8 +360,8 @@ dans le répertoire contenant le fichier <code class="file docutils literal notr
 </pre></div>
 </div>
 </div>
-<div class="section" id="exercices">
-<h2>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="exercice">
+<h2>Exercice<a class="headerlink" href="#exercice" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="exercice admonition">
 <p class="admonition-title">Démarrer et configurer Jenkins</p>
 <p>Téléchargez Jenkins sous la forme d’un fichier WAR à l’adresse</p>
@@ -285,8 +377,11 @@ devez préciser un nouveau port pour <a class="reference external" href="https:/
 </div></blockquote>
 <p>Pour finaliser l’installation, il vous faudra :</p>
 <ul class="simple">
-<li><p>Valider votre installation en fournissant la clé d’administration
-(cette clé est affichée dans la fenêtre de terminal au lancement de Jenkins)</p></li>
+<li><p>Valider votre installation en fournissant la clé d’administration.
+Cette clé est affichée dans les logs du serveur dans la fenêtre de
+terminal durant le lancement.
+Sinon, depuis votre répertoire utilisateur, vous trouverez le fichier
+<code class="file docutils literal notranslate"><span class="pre">.jenkins/secrets/initialAdminPassword</span></code> qui contient cette clé.</p></li>
 <li><p>Finir l’installation en faisant télécharger les plugins recommandés</p></li>
 <li><p>Créer un compte administrateur (le mail demandé n’a pas besoin d’être valide
 pour une installation de test).</p></li>
@@ -296,22 +391,121 @@ pour une installation de test).</p></li>
 Là, vous pouvez préciser les chemins des exécutables pour les outils nécessaires
 à Jenkins : le JDK, Git et Maven.</p>
 </div>
+</div>
+<div class="section" id="configuration-d-un-job">
+<h2>Configuration d’un job<a class="headerlink" href="#configuration-d-un-job" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference external" href="https://jenkins.io/index.html">Jenkins</a> gère des <em>jobs</em>, c’est-à-dire un ensemble de tâches à réaliser périodiquement.
+Chaque exécution d’un <em>job</em> est appelée un <em>build</em>. Cela correspond généralement
+à récupérer les dernières modifications d’un projet, à le compiler, exécuter
+les tests et éventuellement déployer la solution.</p>
+</div>
+<div class="section" id="id1">
+<h2>Exercice<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="exercice admonition">
 <p class="admonition-title">Configurer un job Jenkins à partir d’un dépôt Git</p>
-<p>Configurez un job Jenkins pour récupérer votre projet depuis un dépôt Git
+<p>Configurez un <em>job</em> Jenkins pour récupérer votre projet depuis un dépôt Git
 distant, générer le package et déployer l’application sous Tomcat.</p>
-<p>Assurez-vous que le job sera lancé régulièrement par Jenkins pour prendre
-en compte les modifications qui seront apportées dans le dépôt Git.</p>
+<p>Assurez-vous que le <em>job</em> sera lancé régulièrement par Jenkins pour prendre
+en compte les modifications qui seront poussées dans le dépôt Git.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p>Pour cet exercice, vous pouvez cliquer sur le menu <span class="guilabel">Nouveau item</span>
+(<em>sic</em>). Entrez le nom de votre <em>job</em> et choisissez <span class="guilabel">Construire un projet free-style</span>.</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/jenkins_creation_job.png" src="../_images/jenkins_creation_job.png" />
+<p class="caption"><span class="caption-text">Création d’un job dans Jenkins</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
 </div>
+<p>Dans la fenêtre de configuration du projet, vous pouvez :</p>
+<ul class="simple">
+<li><p>indiquer l’adresse du dépôt Git à partir duquel obtenir les sources du projet.</p></li>
+<li><p>indiquer la périodicité pour laquelle Jenkins doit vérifier les modifications
+effectuées sur le dépôt distant. Pour indiquer la périodicité, <a class="reference external" href="https://jenkins.io/index.html">Jenkins</a>
+suit un format identique au planificateur de tâches Cron. Consultez la
+documentation de <a class="reference external" href="https://jenkins.io/index.html">Jenkins</a> en cliquant sur l’icône d’aide dans la page
+de configuration de votre <em>job</em>.</p></li>
+<li><p>les tâches à réaliser lors de l’exécution d’un <em>build</em>.</p></li>
+</ul>
+<div class="figure align-center" id="id3">
+<img alt="../_images/jenkins_configuration_job.png" src="../_images/jenkins_configuration_job.png" />
+<p class="caption"><span class="caption-text">Configuration d’un job dans Jenkins</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Pour l’ajout des tâches à réaliser, <a class="reference external" href="https://jenkins.io/index.html">Jenkins</a> vous propose une liste
+d’étapes. Vous trouverez une entrée
+<span class="guilabel">Invoquer les cibles Maven de haut niveau</span> qui vous
+permet de choisir les <em>goals</em> Maven à lancer. Pour un projet Maven,
+Jenkins peut donc se contenter d’exécuter une commande Maven pour
+réaliser les tâches nécessaires.</p>
+<div class="figure align-center" id="id4">
+<img alt="../_images/jenkins_ajout_etape_build.png" src="../_images/jenkins_ajout_etape_build.png" />
+<p class="caption"><span class="caption-text">Le menu d’ajout des étapes</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Une fois le <em>job</em> créé, vous pouvez le tester en lançant manuellement
+un <em>build</em>. Pour cela, il suffit de cliquer sur l’icône avec la flèche
+verte depuis la page principale qui affiche le <em>dashboard</em>.</p>
+<div class="figure align-center" id="id5">
+<img alt="../_images/jenkins_dashboard.png" src="../_images/jenkins_dashboard.png" />
+<p class="caption"><span class="caption-text">Le <em>dashboard</em> de Jenkins</span><a class="headerlink" href="#id5" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="configuration-d-un-job-suite">
+<h2>Configuration d’un job (suite)<a class="headerlink" href="#configuration-d-un-job-suite" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans la configuration d’un <em>job</em>, vous pouvez ajouter des actions à exécuter
+à la suite du <em>build</em>.</p>
+<div class="figure align-center" id="id6">
+<img alt="../_images/jenkins_ajout_etape_apres_build.png" src="../_images/jenkins_ajout_etape_apres_build.png" />
+<p class="caption"><span class="caption-text">Le menu d’ajout des étapes après le <em>build</em></span><a class="headerlink" href="#id6" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Dans le menu ci-dessus, vous trouvez par exemple <span class="guilabel">Notifier par Email</span>
+qui permet d’envoyer un mail pour signaler l’échec d’un <em>build</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour pouvoir activer la notification par mail, vous devez au préalable avoir configuré
+un serveur d’envoi de mail au niveau de <a class="reference external" href="https://jenkins.io/index.html">Jenkins</a>. Comme vous ne disposez
+sans doute pas d’un serveur SMTP sur votre machine, nous n’utiliserons pas
+la notification par email. Il s’agit cependant de l’action la plus utile
+à configurer après un <em>build</em> afin que l’équipe soit prévenue de problèmes
+éventuels sans avoir besoin de consulter régulièrement le <em>dashboard</em> du
+serveur <a class="reference external" href="https://jenkins.io/index.html">Jenkins</a>.</p>
+</div>
+<p>Certaines actions à exécuter à la suite du <em>build</em> permettent de produire des
+rapports accessibles depuis la page du <em>job</em>.</p>
+</div>
+<div class="section" id="exercices">
+<h2>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="exercice admonition">
-<p class="admonition-title">Ajouter des rapports de tests</p>
-<p>Dans la configuration du job de votre projet, ajoutez comme <em>action à la suite du build</em> :
+<p class="admonition-title">Ajouter un rapport de tests unitaires</p>
+<p>Dans la configuration du <em>job</em> de votre projet, ajoutez comme <em>action à la suite du build</em> :
 <span class="guilabel">Publier le rapport des résultats des tests JUnit</span>. Configurez
 cette action pour qu’elle exploite les fichiers XML de rapport JUnit qui sont
 produits dans le répertoire <code class="file docutils literal notranslate"><span class="pre">target/surefire-reports</span></code> de votre projet.</p>
-<p>Ajoutez dans Jenkins le plugin JaCoCo (<span class="guilabel">Administrer Jenkins</span> &gt; <span class="guilabel">Gestion des plugins</span>).
-Dans la configuration du job de votre projet, ajoutez comme <em>action à la suite du build</em> :
-<span class="guilabel">Record JaCoCo coverage report</span>. Testez avec la configuration par défaut.</p>
+<p>Vérifiez qu’après avoir exécuté un <em>build</em>, vous avez accès au rapport de
+test JUnit depuis la page de votre <em>job</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous devez bien sûr vous assurer que la tâche d’exécution de Maven
+que vous avez ajoutée précédemment pour le <em>job</em> exécute bien la phase
+<strong>test</strong>.</p>
+</div>
+</div>
+<div class="exercice admonition">
+<p class="admonition-title">Ajouter un rapport JaCoCo sur la couverture pour les tests</p>
+<p>Ajoutez dans Jenkins le plugin JaCoCo. Pour cela, depuis la page d’accueil
+de votre instance de <a class="reference external" href="https://jenkins.io/index.html">Jenkins</a>, allez dans <span class="guilabel">Administrer Jenkins</span> &gt; <span class="guilabel">Gestion des plugins</span>.
+Vous trouverez le plugin JaCoCo dans la liste des plugins à installer.</p>
+<p>Ensuite, dans la configuration du <em>job</em> de votre projet, ajoutez comme
+<em>action à la suite du build</em> : <span class="guilabel">Record JaCoCo coverage report</span>
+(ce choix n’est disponible que si vous avez installé le plugin avec succès).
+En gardant la configuration par défaut pour cette action, vérifiez qu’après
+avoir exécuté un <em>build</em>, vous avez accès au rapport de couverture de code
+depuis la page de votre <em>job</em> .</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous devez bien sûr vous assurer que la tâche d’exécution de Maven
+que vous avez ajoutée précédemment pour le <em>job</em> exécute bien le plugin
+Maven JaCoCo.</p>
+</div>
 </div>
 <div class="exercice admonition">
 <p class="admonition-title">Tester votre usine logiciel</p>
@@ -330,6 +524,8 @@ de test qui sont ainsi produits.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../test_acceptation/selenium.html" class="btn btn-neutral float-right" title="Selenium" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="maven.html" class="btn btn-neutral float-left" title="Maven" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Précédent</a>
