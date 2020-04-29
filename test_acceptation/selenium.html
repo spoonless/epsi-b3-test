@@ -674,16 +674,22 @@ que vous souhaitez tester :</p>
 </tbody>
 </table>
 <p>Si vous souhaitez intégrer l’utilisation du <em>Web Driver</em>, vous pouvez déclarer
-dans votre projet Java une dépendance avec JUnit et une dépendance au <em>binding</em>
-du navigateur qui vous intéresse :</p>
+dans votre projet Java une dépendance avec JUnit, une dépendance avec les classes
+communes de Selenium et une dépendance au <em>binding</em> du navigateur qui vous intéresse :</p>
 <div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">Exemple de dépendance pour des tests JUnit avec Chrome</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">Exemple de dépendances pour des tests JUnit avec Chrome</span><a class="headerlink" href="#id7" title="Lien permanent vers ce code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencies&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
         <span class="nt">&lt;version&gt;</span>4.13<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.seleniumhq.selenium<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>selenium-support<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>3.141.59<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
 
     <span class="nt">&lt;dependency&gt;</span>
